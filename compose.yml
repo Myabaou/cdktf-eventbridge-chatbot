@@ -1,0 +1,13 @@
+services:
+  cdk-tf:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cdktf-docker:latest
+    volumes:
+      - ~/.aws:/root/.aws
+    working_dir: /app
+    tty: true
+    stdin_open: true
+    
+    command: /bin/bash
