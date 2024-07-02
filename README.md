@@ -1,6 +1,4 @@
-# cdktf-rdsevent-chatbot
-
-CDK For Terraform RDS Event Chatbot
+# CDK For Terraform  Eventbridge Chatbot
 
 ## 前提条件
 
