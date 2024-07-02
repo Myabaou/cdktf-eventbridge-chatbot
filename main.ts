@@ -5,6 +5,7 @@ import { AwsProvider } from "@cdktf/provider-aws/lib/provider";
 import { snsChatbot } from './lib/sns_chatbot';
 import { dataAwsCallerIdentity, iamRole, iamRolePolicyAttachment } from "@cdktf/provider-aws";
 
+import { S3Backend } from 'cdktf';
 
 class MyStack extends TerraformStack {
   constructor(scope: Construct, id: string) {
@@ -23,6 +24,21 @@ class MyStack extends TerraformStack {
         }
       }]
     });
+
+    // S3 backend configuration
+    // ダミー関数でS3Backendを使用
+    function useS3Backend() {
+      console.log(S3Backend);
+    }
+    useS3Backend();
+    /*　tfstate を S3 に保存する場合設定する
+    new S3Backend(this, {
+      bucket: <S3 Bucket Name>,
+      key: <S3 Bucket Key>,
+      region: <AWS Region>,
+      encrypt: true,
+    });
+*/
 
     // Account ID を取得
     const current = new dataAwsCallerIdentity.DataAwsCallerIdentity(this, "current", {});
